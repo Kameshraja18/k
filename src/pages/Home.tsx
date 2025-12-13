@@ -6,21 +6,22 @@ import { Github, Linkedin, MessageCircle, Copy, Check, FileDown, User } from 'lu
 import Link from 'next/link';
 import { useState } from 'react';
 import useSWR from 'swr';
+import { aboutData } from '@/data/portfolio';
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 
 const Home = () => {
 	const [copied, setCopied] = useState(false);
-	const email = 'code.niladri@gmail.com';
-	const whatsappNumber = '+916296554939';
+	const email = 'k.s.kameshraja@gmail.com';
+	const whatsappNumber = '+919585459935';
 
-	const { data: githubData } = useSWR('https://api.github.com/users/niladri-1', fetcher);
+	const githubData = null;
 	function formatRepoCount(count: number): string {
 		if (count < 5) return count.toString();
 		return `${Math.floor(count / 5) * 5}+`;
 	}
-	const githubRepos = githubData?.public_repos || 0;
-	const displayRepos = formatRepoCount(githubRepos);
+	// const githubRepos = githubData?.public_repos || 0;
+	const displayRepos = "3+"; // Updated to match actual project count
 
 	const copyToClipboard = async () => {
 		try {
@@ -50,7 +51,7 @@ const Home = () => {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.8 }}
 				>
-					Niladri Chatterjee
+					{aboutData.name}
 				</motion.h1>
 				<motion.h1
 					className="text-2xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6 relative tracking-tighter"
@@ -58,7 +59,7 @@ const Home = () => {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.8 }}
 				>
-					I design & code for web
+					{aboutData.title}
 				</motion.h1>
 
 				<motion.p
@@ -78,7 +79,7 @@ const Home = () => {
 				>
 					<div className="flex justify-center space-x-3 sm:space-x-4">
 						<a
-							href="/files/cv_pdf/Niladri_Chatterjee(CV).pdf"
+							href={aboutData.cvUrl}
 							target="_blank"
 							rel="noopener noreferrer"
 							className="px-4 sm:px-6 py-2.5 sm:py-3 bg-white text-black rounded-full text-sm sm:text-base font-medium hover:bg-gray-100 transition-colors flex items-center gap-2"
@@ -123,7 +124,7 @@ const Home = () => {
 					transition={{ duration: 0.8, delay: 0.6 }}
 				>
 					<motion.a
-						href="https://github.com/niladri-1"
+						href={aboutData.githubUrl}
 						target="_blank"
 						rel="noopener noreferrer"
 						className="flex flex-col items-center group w-full"
@@ -144,7 +145,7 @@ const Home = () => {
 					</motion.a>
 
 					<motion.a
-						href="https://linkedin.com/in/niladri1"
+						href={aboutData.linkedinUrl}
 						target="_blank"
 						rel="noopener noreferrer"
 						className="flex flex-col items-center group w-full"
@@ -159,8 +160,8 @@ const Home = () => {
 							animate={{ opacity: 1 }}
 							transition={{ delay: 0.8 }}
 						>
-							<span className="text-base sm:text-lg font-semibold">1500+</span>
-							<span className="text-xs sm:text-sm text-gray-400">LinkedIn Followers</span>
+							<span className="text-base sm:text-lg font-semibold">Connect</span>
+							<span className="text-xs sm:text-sm text-gray-400">On LinkedIn</span>
 						</motion.div>
 					</motion.a>
 

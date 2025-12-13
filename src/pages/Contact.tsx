@@ -29,19 +29,19 @@ const Contact = () => {
 		{
 			icon: <Mail className="w-5 h-5" />,
 			label: 'Email',
-			value: 'code.niladri@gmail.com',
-			link: 'mailto:code.niladri@gmail.com'
+			value: 'k.s.kameshraja@gmail.com',
+			link: 'mailto:k.s.kameshraja@gmail.com'
 		},
 		{
 			icon: <Phone className="w-5 h-5" />,
 			label: 'Phone',
-			value: '+916296554939',
-			link: 'tel:+916296554939'
+			value: '+91 9585459935',
+			link: 'tel:+919585459935'
 		},
 		{
 			icon: <MapPin className="w-5 h-5" />,
 			label: 'Location',
-			value: 'Kolkata, West Bengal, India'
+			value: 'Villupuram, Tamilnadu, India'
 		},
 		{
 			icon: <Clock className="w-5 h-5" />,
@@ -54,17 +54,17 @@ const Contact = () => {
 		{
 			icon: <Github className="w-5 h-5" />,
 			label: 'GitHub',
-			link: 'https://github.com/niladri-1'
+			link: '#'
 		},
 		{
 			icon: <Linkedin className="w-5 h-5" />,
 			label: 'LinkedIn',
-			link: 'https://linkedin.com/in/niladri1'
+			link: '#'
 		},
 		{
 			icon: <MessageCircle className="w-5 h-5" />,
 			label: 'WhatsApp',
-			link: 'https://wa.me/+916296554939'
+			link: 'https://wa.me/+919585459935'
 		}
 	];
 

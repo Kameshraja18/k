@@ -13,28 +13,33 @@ const inter = Inter({
 	preload: true,
 });
 
-export const metadata: Metadata = {
-	title: 'Niladri Chatterjee - Software Developer',
-	description: 'Niladri Chatterjee - Full Stack Developer specializing in MERN stack, React.js, Node.js, and modern web technologies. Expert in database development and web applications.',
-	keywords: 'Niladri Chatterjee, Niladri1, niladri1, Software Developer, Full Stack Developer, MERN Stack, Web Developer, React Developer, Next.js Expert, Database Developer, Frontend Specialist, Backend Developer, JavaScript Expert, TypeScript Developer, Node.js Developer, MongoDB Expert, SQL Developer',
-	authors: [{ name: 'Niladri Chatterjee' }],
-	creator: 'Niladri Chatterjee',
-	manifest: '/manifest.json',
+export const viewport = {
 	themeColor: '#000000',
-	viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
+	width: 'device-width',
+	initialScale: 1,
+	maximumScale: 5,
+};
+
+export const metadata: Metadata = {
+	title: 'Kameshraja K - Software Developer',
+	description: 'Kameshraja K - Full Stack Developer specializing in AI/ML, React.js, Node.js, and modern web technologies.',
+	keywords: 'Kameshraja K, Software Developer, Full Stack Developer, AI/ML, Web Developer, React Developer, Next.js, Python, TensorFlow, OpenCV',
+	authors: [{ name: 'Kameshraja K' }],
+	creator: 'Kameshraja K',
+	manifest: '/manifest.json',
 	openGraph: {
 		type: 'website',
 		locale: 'en_US',
-		url: 'https://niladri1.vercel.app/',
-		title: 'Niladri Chatterjee - Full Stack Developer',
-		description: 'Full-stack developer specializing in MERN stack, React.js, Node.js, and modern web technologies.',
-		siteName: 'Niladri Chatterjee Portfolio',
+		url: 'https://kameshraja-portfolio.vercel.app/', // Updated placeholder URL
+		title: 'Kameshraja K - Full Stack Developer',
+		description: 'Full-stack developer specializing in AI/ML, React.js, Node.js, and modern web technologies.',
+		siteName: 'Kameshraja K Portfolio',
 	},
 	twitter: {
 		card: 'summary_large_image',
-		title: 'Niladri Chatterjee - Full Stack Developer',
-		description: 'Full-stack developer specializing in MERN stack, React.js, Node.js, and modern web technologies.',
-		creator: '@niladri_dev',
+		title: 'Kameshraja K - Full Stack Developer',
+		description: 'Full-stack developer specializing in AI/ML, React.js, Node.js, and modern web technologies.',
+		creator: '@kameshraja',
 	},
 	robots: {
 		index: true,
@@ -46,7 +51,7 @@ export const metadata: Metadata = {
 			noimageindex: true,
 		},
 	},
-	metadataBase: new URL('https://niladri1.vercel.app'),
+	metadataBase: new URL('https://kameshraja-portfolio.vercel.app'),
 	alternates: {
 		canonical: '/',
 	},
@@ -61,15 +66,28 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" className={inter.className}>
+		<html lang="en" className={inter.className} suppressHydrationWarning={true}>
 			<head>
 				<link rel="shortcut icon" href="/nextjs.png" type="image/x-icon" />
 				<link rel="apple-touch-icon" href="/nextjs.png" />
-				<meta name="theme-color" content="#000000" />
+
 				<link rel="manifest" href="/manifest.json" />
 				<meta httpEquiv="Content-Security-Policy" content="default-src 'self' data: blob: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: data: https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: blob: https: http:; font-src 'self' data: https:; connect-src 'self' data: blob: https:; worker-src 'self' blob: data:;" />
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `
+							if ('serviceWorker' in navigator) {
+								navigator.serviceWorker.getRegistrations().then(function(registrations) {
+									for(let registration of registrations) {
+										registration.unregister();
+									}
+								});
+							}
+						`,
+					}}
+				/>
 			</head>
-			<body>
+			<body key="kameshraja-portfolio-v3" suppressHydrationWarning={true}>
 				<div className="min-h-screen flex flex-col">
 					<Background3D />
 					<Navbar />

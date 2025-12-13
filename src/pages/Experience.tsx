@@ -4,60 +4,7 @@ import { motion } from 'framer-motion';
 import { Briefcase, MapPin, Building2, ExternalLink, ArrowRight } from 'lucide-react';
 import { ScrollAnimation } from '@/components/ScrollAnimation';
 
-const experiences = [
-	{
-		title: "Software Engineering Intern",
-		company: "Code Alpha",
-		location: "Remote",
-		period: "Jun 2024 - Aug2024",
-		type: "Internship",
-		image: "/experience/codeAlpha_page.jpg",
-		certificateUrl: "/files/experience_pdf/codeAlpha.pdf",
-		description: [
-			"Optimized web application performance with JavaScript and React.js, achieving a 98% error-free rate",
-			"Implemented advanced features on a React.js platform, resulting in a 40% surge in user interaction"
-		]
-	},
-	{
-		title: "Full Stack Development Intern ",
-		company: "Bharat Intern",
-		location: "Remote",
-		period: "Jun 2024 - Jul 2024",
-		type: "Internship",
-		image: "/experience/bharatIntern_page.jpg",
-		certificateUrl: "/files/experience_pdf/bharatIntern.pdf",
-		description: [
-			"Designed 3 websites with CSS, JavaScript, React.js, Node.js and MongoDB, resulting in a 30% increase in user engagement",
-			"Built a money tracker app using HTML, CSS, React.js, Node.js, and MongoDB, improving user financial tracking by 25%"
-		]
-	},
-	{
-		title: "Web Applications Intern",
-		company: "CodeClause",
-		location: "Remote",
-		period: "Jun 2023 - Jul 2023",
-		type: "Internship",
-		image: "/experience/codeClause_page.jpg",
-		certificateUrl: "/files/experience_pdf/codeClause.pdf",
-		description: [
-			"Engineered a real-time collaborative document editor using Next.js, TypeScript, and Liveblocks, reducing latency by 30%",
-			"Implemented and optimized a personal portfolio with Next.js and Tailwind CSS, improving performance by 40%"
-		]
-	},
-	{
-		title: "Junior Software Engineer",
-		company: "Oasis Infobyte",
-		location: "Remote",
-		period: "Jun 2023 - Jul 2023",
-		type: "Internship",
-		image: "/experience/oasisInfobyte_page.jpg",
-		certificateUrl: "/files/experience_pdf/oasisInfobyte.pdf",
-		description: [
-			"Engineered a real-time collaborative document editor using Next.js, TypeScript, and Liveblocks, reducing latency by 30%",
-			"Implemented and optimized a personal portfolio with Next.js and Tailwind CSS, improving performance by 40%"
-		]
-	},
-];
+import { experiences } from '@/data/portfolio';
 
 const Experience = () => {
 	return (
@@ -111,7 +58,7 @@ const Experience = () => {
 										className="md:hidden mt-6 inline-flex items-center gap-2 px-6 py-2.5 text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-lg transition-all duration-300 text-sm font-medium"
 										whileHover={{ scale: 1.02 }}
 									>
-										View Certificate
+										{exp.certificateUrl.endsWith('.pdf') ? 'View Certificate' : 'View Project'}
 										<ExternalLink className="w-4 h-4" />
 									</motion.a>
 								</div>
@@ -133,7 +80,7 @@ const Experience = () => {
 											className="px-8 py-3 text-white font-bold bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-xl flex items-center gap-2 transition-all duration-300 hover:scale-105 border border-white/10 hover:border-white/20"
 											whileHover={{ y: -5 }}
 										>
-											View Certificate
+											{exp.certificateUrl.endsWith('.pdf') ? 'View Certificate' : 'View Project'}
 											<ExternalLink className="w-4 h-4" />
 										</motion.a>
 									</div>

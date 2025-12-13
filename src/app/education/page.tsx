@@ -2,8 +2,8 @@ import Education from '@/pages/Education';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-	title: 'Education - Niladri Chatterjee',
-	description: 'Niladri Chatterjee\'s educational background including B.Tech in Computer Science and Engineering from Bengal College of Engineering and Technology.',
+	title: 'Education - Kameshraja K',
+	description: 'Kameshraja K\'s educational background including B.E. in Computer Science and Engineering from V. R. S. College of Engineering and Technology.',
 };
 
 export default function EducationPage() {

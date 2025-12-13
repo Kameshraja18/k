@@ -2,8 +2,8 @@ import Projects from '@/pages/Projects';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-	title: 'Projects - Niladri Chatterjee',
-	description: 'View Niladri Chatterjee\'s portfolio of projects including Live Docs, Figma Clone, Video Conferencing App, and more.',
+	title: 'Projects - Kameshraja K',
+	description: 'View Kameshraja K\'s portfolio of projects including AI-Powered Pneumonia Classifier, AgriTech Platform, and Municipal Waste Tracking.',
 };
 
 export default function ProjectsPage() {
