@@ -101,32 +101,47 @@ const Skills = () => {
 					{skills.map((skillGroup, index) => (
 						<ScrollAnimation key={skillGroup.category}>
 							<motion.div
-								className="h-full bg-white/5 p-8 rounded-3xl backdrop-blur-sm hover:bg-white/[0.07] transition-all duration-300 border border-white/10 hover:border-white/30 group"
+								className="h-full bg-black/50 p-6 rounded-xl border border-gray-800 hover:border-white/30 transition-all duration-300 group relative overflow-hidden"
 								whileHover={{ y: -5 }}
 							>
-								<div className="flex items-center space-x-4 mb-8">
-									<div className="p-3 bg-white/5 rounded-2xl border border-white/5 group-hover:border-white/20 transition-colors">
-										{skillGroup.icon}
-									</div>
-									<h3 className="text-xl font-bold text-white group-hover:text-gray-200 transition-colors">
-										{skillGroup.category}
-									</h3>
+								{/* Scanline Effect on Hover */}
+								<div className="absolute inset-0 z-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+									<div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:10px_10px]" />
 								</div>
 
-								<div className="grid grid-cols-2 gap-3">
-									{skillGroup.items.map((skill, skillIndex) => (
-										<div
-											key={skill.name}
-											className="px-3 py-2.5 rounded-xl bg-white/5 flex items-center justify-center gap-2 hover:bg-white/10 transition-colors border border-transparent hover:border-white/10"
-										>
-											<div className="transform scale-90 text-white">
-												{skill.icon}
-											</div>
-											<span className="text-gray-300 text-sm font-medium">
-												{skill.name}
-											</span>
+								<div className="relative z-10">
+									<div className="flex items-center space-x-4 mb-8">
+										<div className="p-3 bg-white/5 rounded-lg border border-white/10 group-hover:border-white/30 transition-colors">
+											{skillGroup.icon}
 										</div>
-									))}
+										<h3 className="text-xl font-bold text-white group-hover:text-gray-200 transition-colors font-mono tracking-wide">
+											{skillGroup.category}
+										</h3>
+									</div>
+
+									<div className="grid grid-cols-2 gap-3">
+										{skillGroup.items.map((skill, skillIndex) => (
+											<div
+												key={skill.name}
+												className="px-3 py-2.5 rounded bg-white/5 flex items-center justify-center gap-2 hover:bg-white/10 transition-colors border border-white/5 hover:border-white/20 group/item"
+											>
+												<div className="transform scale-90 text-white group-hover/item:scale-110 transition-transform">
+													{skill.icon}
+												</div>
+												<span className="text-gray-300 text-xs font-bold uppercase tracking-wider">
+													{skill.name}
+												</span>
+											</div>
+										))}
+									</div>
+								</div>
+
+								{/* Corner Accents */}
+								<div className="absolute top-0 right-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+									<div className="w-2 h-2 border-t border-r border-white" />
+								</div>
+								<div className="absolute bottom-0 left-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+									<div className="w-2 h-2 border-b border-l border-white" />
 								</div>
 							</motion.div>
 						</ScrollAnimation>

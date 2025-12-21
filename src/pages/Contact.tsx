@@ -19,10 +19,35 @@ const Contact = () => {
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 		setIsSubmitting(true);
-		await new Promise(resolve => setTimeout(resolve, 1500));
-		setSubmitStatus('success');
+		setSubmitStatus('idle');
+
+		try {
+			const response = await fetch("https://formsubmit.co/ajax/k.s.kameshraja@gmail.com", {
+				method: "POST",
+				headers: {
+					'Content-Type': 'application/json',
+					'Accept': 'application/json'
+				},
+				body: JSON.stringify({
+					name: formData.name,
+					email: formData.email,
+					subject: formData.subject,
+					message: formData.message
+				})
+			});
+
+			if (response.ok) {
+				setSubmitStatus('success');
+				setFormData({ name: '', email: '', subject: '', message: '' });
+			} else {
+				setSubmitStatus('error');
+			}
+		} catch (error) {
+			console.error('Submission error:', error);
+			setSubmitStatus('error');
+		}
+
 		setIsSubmitting(false);
-		setFormData({ name: '', email: '', subject: '', message: '' });
 	};
 
 	const contactInfo = [
@@ -229,9 +254,18 @@ const Contact = () => {
 									<motion.div
 										initial={{ opacity: 0, y: 10 }}
 										animate={{ opacity: 1, y: 0 }}
-										className="p-4 bg-white/10 border border-white/20 rounded-xl text-white text-center"
+										className="p-4 bg-green-500/10 border border-green-500/20 rounded-xl text-green-400 text-center"
 									>
 										Message sent successfully! I'll get back to you soon.
+									</motion.div>
+								)}
+								{submitStatus === 'error' && (
+									<motion.div
+										initial={{ opacity: 0, y: 10 }}
+										animate={{ opacity: 1, y: 0 }}
+										className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-400 text-center"
+									>
+										Something went wrong. Please try again or email me directly.
 									</motion.div>
 								)}
 							</form>

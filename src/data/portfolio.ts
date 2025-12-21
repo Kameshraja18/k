@@ -27,7 +27,7 @@ export const experiences: ExperienceItem[] = [
 		location: "Villupuram / Remote",
 		period: "Apr 2025 - May 2025",
 		type: "Internship",
-		image: "/experience/codeAlpha_page.jpg",
+		image: "/experience/oneyes_logo.png",
 		certificateUrl: "/experience/oneyes Infotech solution.pdf",
 		description: [
 			"Developed a responsive web platform to monitor and manage municipal waste collection operations.",
@@ -37,17 +37,17 @@ export const experiences: ExperienceItem[] = [
 		]
 	},
 	{
-		title: "Internship Program",
-		company: "Thozil",
-		location: "Tamilnadu",
-		period: "2024",
-		type: "Internship",
-		image: "/experience/bharatIntern_page.jpg", // Using a placeholder since user didn't provide an image
-		certificateUrl: "/experience/thozil intern.pdf",
+		title: "Freelance / Projects",
+		company: "Aether Projects",
+		location: "Villupuram",
+		period: "Ongoing",
+		type: "Projects",
+		image: "/experience/aether_preview.png",
+		certificateUrl: "https://aether--projects.vercel.app/",
 		description: [
-			"Participated in an intensive internship program focused on practical skill development.",
-			"Gained hands-on experience in industry-standard technologies and workflows.",
-			"Collaborated with peers to solve real-world problems."
+			"Check My Freelance Projects Live on my site Aether Projects.",
+			"Participated in Smart India Hackathon 2025, showcasing problem solving and innovation in tech.",
+			"Building solutions that create meaningful real-world impact."
 		]
 	},
 	{
@@ -56,7 +56,7 @@ export const experiences: ExperienceItem[] = [
 		location: "Remote",
 		period: "May 2024 - July 2024",
 		type: "Program",
-		image: "/experience/bharatIntern_page.jpg",
+		image: "/experience/intel_logo.png",
 		certificateUrl: "/certificates/intel_unnati.png",
 		description: [
 			"Developed a dynamic web platform that integrates essential public services into a single accessible interface.",
@@ -66,17 +66,17 @@ export const experiences: ExperienceItem[] = [
 		]
 	},
 	{
-		title: "Freelance / Projects",
-		company: "Aether Projects",
-		location: "Villupuram",
-		period: "Ongoing",
-		type: "Projects",
-		image: "/projects_img/project-1.png",
-		certificateUrl: "https://aether--projects.vercel.app/",
+		title: "Internship Program",
+		company: "Thozil",
+		location: "Tamilnadu",
+		period: "2024",
+		type: "Internship",
+		image: "/experience/thozil_logo.png",
+		certificateUrl: "/experience/thozil intern.pdf",
 		description: [
-			"Check My Freelance Projects Live on my site Aether Projects.",
-			"Participated in Smart India Hackathon 2025, showcasing problem solving and innovation in tech.",
-			"Building solutions that create meaningful real-world impact."
+			"Participated in an intensive internship program focused on practical skill development.",
+			"Gained hands-on experience in industry-standard technologies and workflows.",
+			"Collaborated with peers to solve real-world problems."
 		]
 	}
 ];

@@ -20,16 +20,60 @@ const About = () => {
 				<div className="grid lg:grid-cols-2 gap-16 items-start">
 					{/* Image Column */}
 					<ScrollAnimation>
-						<div className="relative aspect-square max-w-md mx-auto lg:max-w-none w-full animate-float">
-							<div className="absolute inset-0 bg-gradient-to-tr from-gray-600/30 to-gray-400/30 rounded-[2rem] blur-2xl transform -rotate-6" />
-							<div className="relative h-full rounded-[2rem] overflow-hidden border border-white/10 bg-white/5 shadow-2xl">
-								<img
-									src={aboutData.profileImage}
-									alt="Kameshraja K"
-									className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-								/>
+						<motion.div
+							className="relative w-full max-w-md aspect-square perspective-1000 mx-auto"
+							whileHover={{ scale: 1.02 }}
+							transition={{ duration: 0.5 }}
+						>
+							{/* Futuristic Frame Container */}
+							<div className="relative w-full h-full bg-black border border-gray-800 p-2 overflow-hidden group">
+
+								{/* Scanning Line & Grid Overlay (Tech Effects) */}
+								<div className="absolute inset-0 z-20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+									<div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
+									<div className="absolute top-0 left-0 right-0 h-1 bg-white/50 shadow-[0_0_20px_rgba(255,255,255,0.5)] animate-scan" />
+								</div>
+
+								{/* Corner Brackets */}
+								<div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-white z-30 transition-all duration-300 group-hover:w-16 group-hover:h-16" />
+								<div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-white z-30 transition-all duration-300 group-hover:w-16 group-hover:h-16" />
+								<div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-white z-30 transition-all duration-300 group-hover:w-16 group-hover:h-16" />
+								<div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-white z-30 transition-all duration-300 group-hover:w-16 group-hover:h-16" />
+
+								{/* Main Image */}
+								<div className="relative w-full h-full bg-gray-900 border border-gray-800">
+									<img
+										src={aboutData.profileImage}
+										alt={aboutData.name}
+										className="w-full h-full object-cover filter grayscale contrast-125 brightness-75 group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-100 transition-all duration-700"
+									/>
+
+									{/* Overlay Gradient */}
+									<div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10" />
+
+									{/* Tech Stack / Data Display */}
+									<div className="absolute bottom-0 left-0 right-0 m-6 z-20 font-mono">
+										<div className="flex items-center gap-2 text-xs text-white/60 mb-3 tracking-widest uppercase">
+											<span className="w-2 h-2 bg-white animate-pulse shadow-[0_0_10px_white]" />
+											System Identity
+										</div>
+										<div className="space-y-2 border-l-2 border-white/20 pl-4 backdrop-blur-sm bg-black/20 py-2">
+											<p className="text-white font-bold text-lg tracking-wider">DEVELOPER_PROFILE</p>
+											<div className="flex flex-wrap gap-2">
+												{['FULL_STACK', 'UI/UX', 'SYSTEM_ARCH'].map((tag) => (
+													<span key={tag} className="text-[10px] font-bold text-black bg-white px-2 py-0.5 tracking-wider">
+														{tag}
+													</span>
+												))}
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
+
+							{/* Back-plate Decoration */}
+							<div className="absolute -z-10 top-4 -right-4 w-full h-full border border-gray-800 bg-gray-900/50" />
+						</motion.div>
 					</ScrollAnimation>
 
 					{/* Content Column */}

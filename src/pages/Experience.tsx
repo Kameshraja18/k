@@ -73,26 +73,42 @@ const Experience = () => {
 										</motion.a>
 									</div>
 
-									<div className="relative hidden lg:block h-full min-h-[300px]">
-										<div className="absolute inset-0 group-hover:scale-105 transition-transform duration-700">
+									<div className="relative hidden lg:block h-full min-h-[300px] border-l border-white/10 p-4">
+										{/* Tech Frame for Image */}
+										<div className="relative w-full h-full border border-gray-800 bg-black group overflow-hidden">
+
+											{/* Scanline Effect */}
+											<div className="absolute inset-0 z-20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+												<div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px]" />
+												<div className="absolute top-0 left-0 right-0 h-0.5 bg-white/50 animate-scan" />
+											</div>
+
+											{/* Corner Brackets */}
+											<div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-white z-30 transition-all duration-300 opacity-0 group-hover:opacity-100" />
+											<div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-white z-30 transition-all duration-300 opacity-0 group-hover:opacity-100" />
+											<div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-white z-30 transition-all duration-300 opacity-0 group-hover:opacity-100" />
+											<div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-white z-30 transition-all duration-300 opacity-0 group-hover:opacity-100" />
+
 											<img
 												src={exp.image}
 												alt={exp.company}
-												className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+												className="w-full h-full object-cover filter grayscale contrast-125 brightness-75 group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-100 transition-all duration-700"
 											/>
-											<div className="absolute inset-0 bg-gradient-to-l from-transparent via-black/50 to-black/80" />
-										</div>
-										<div className="relative h-full flex items-center justify-center p-8">
-											<motion.a
-												href={exp.certificateUrl}
-												target="_blank"
-												rel="noopener noreferrer"
-												className="px-8 py-4 text-white font-bold bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-2xl flex items-center gap-3 transition-all duration-300 border border-white/20 hover:border-white/40 hover:scale-105 shadow-2xl"
-												whileHover={{ y: -2 }}
-											>
-												{exp.certificateUrl.endsWith('.pdf') ? 'View Certificate' : 'View Project'}
-												<ExternalLink className="w-5 h-5" />
-											</motion.a>
+
+											<div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10" />
+
+											<div className="absolute inset-0 flex items-center justify-center z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+												<motion.a
+													href={exp.certificateUrl}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="px-6 py-3 text-white font-mono text-sm bg-black/80 border border-white hover:bg-white hover:text-black flex items-center gap-2 transition-all duration-300 backdrop-blur-sm"
+													whileHover={{ scale: 1.05 }}
+												>
+													{exp.certificateUrl.endsWith('.pdf') ? 'ACCESS_CERT' : 'VIEW_PROJECT'}
+													<ExternalLink className="w-4 h-4" />
+												</motion.a>
+											</div>
 										</div>
 									</div>
 								</div>

@@ -33,62 +33,90 @@ const certificates = [
 
 const Certificates = () => {
 	return (
-		<div className="min-h-screen pt-20 px-4 max-w-6xl mx-auto pb-20">
-			<ScrollAnimation>
-				<motion.div
-					className="flex items-center gap-3 mb-12"
-					initial={{ opacity: 0, x: -20 }}
-					animate={{ opacity: 1, x: 0 }}
-					transition={{ duration: 0.8 }}
-				>
-					<Award className="w-8 h-8" />
-					<h2 className="text-4xl font-bold gradient-text">Certificates</h2>
-				</motion.div>
-			</ScrollAnimation>
+		<div className="min-h-screen pt-32 px-4 sm:px-6 lg:px-8 pb-20">
+			<div className="max-w-7xl mx-auto">
+				<ScrollAnimation>
+					<div className="mb-16 space-y-4">
+						<h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500 flex items-center gap-3">
+							<Award className="w-10 h-10 text-white" />
+							Certifications
+						</h2>
+						<p className="text-gray-400 text-lg max-w-2xl">
+							Credentials and recognitions from industry leaders.
+						</p>
+					</div>
+				</ScrollAnimation>
 
-			<div className="grid md:grid-cols-2 gap-6">
-				{certificates.map((cert, index) => (
-					<ScrollAnimation key={cert.title}>
-						<motion.div
-							initial={{ opacity: 0, y: 20 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.8, delay: index * 0.1 }}
-							className="bg-gray-800/50 p-6 rounded-lg backdrop-blur-sm hover:bg-gray-800/70 transition-all group border border-white/5"
-						>
-							<h3 className="text-xl font-semibold mb-2">{cert.title}</h3>
-							<div className="text-gray-400 space-y-2">
-								<div className="flex items-center justify-between">
-									<span className="text-lg">{cert.issuer}</span>
-									<div className="flex items-center gap-2">
-										<Calendar className="w-4 h-4" />
-										<span>{cert.date}</span>
+				<div className="grid md:grid-cols-2 gap-8">
+					{certificates.map((cert, index) => (
+						<ScrollAnimation key={cert.title}>
+							<motion.div
+								initial={{ opacity: 0, y: 20 }}
+								animate={{ opacity: 1, y: 0 }}
+								transition={{ duration: 0.8, delay: index * 0.1 }}
+								className="group relative bg-black border border-gray-800 p-6 flex flex-col h-full hover:border-white/30 transition-all duration-300"
+							>
+								{/* Tech Decoration */}
+								<div className="absolute top-0 right-0 p-2 opacity-50">
+									<div className="flex gap-1">
+										<div className="w-1 h-1 bg-white rounded-full animate-pulse" />
+										<div className="w-1 h-1 bg-white/50 rounded-full" />
+										<div className="w-1 h-1 bg-white/20 rounded-full" />
 									</div>
 								</div>
-								<p className="text-gray-300 line-clamp-2">{cert.description}</p>
-								<div className="flex flex-wrap gap-2 mt-4">
-									{cert.skills.map((skill) => (
-										<span
-											key={skill}
-											className="px-2 py-1 text-sm bg-white/10 rounded-full"
+
+								{/* Corner Brackets */}
+								<div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-white/20 group-hover:border-white/80 transition-colors duration-300" />
+								<div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-white/20 group-hover:border-white/80 transition-colors duration-300" />
+
+								{/* Content */}
+								<div className="relative z-10 flex flex-col h-full">
+									<div className="flex justify-between items-start mb-4">
+										<div>
+											<h3 className="text-xl font-bold text-white mb-1 group-hover:text-gray-200 transition-colors">
+												{cert.title}
+											</h3>
+											<span className="text-sm font-mono text-gray-500 uppercase tracking-widest">
+												{cert.issuer}
+											</span>
+										</div>
+										<div className="flex items-center gap-2 text-xs font-mono text-white/60 bg-white/5 px-2 py-1 rounded border border-white/10">
+											<Calendar className="w-3 h-3" />
+											{cert.date}
+										</div>
+									</div>
+
+									<p className="text-gray-400 text-sm mb-6 leading-relaxed flex-grow">
+										{cert.description}
+									</p>
+
+									<div className="space-y-6 mt-auto">
+										<div className="flex flex-wrap gap-2">
+											{cert.skills.map((skill) => (
+												<span
+													key={skill}
+													className="px-2 py-1 text-[10px] uppercase font-bold text-black bg-white/90 hover:bg-white transition-colors tracking-wider"
+												>
+													{skill}
+												</span>
+											))}
+										</div>
+
+										<motion.a
+											href={cert.link}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="inline-flex items-center gap-2 text-sm font-bold text-white border-b border-white/20 pb-1 hover:border-white transition-all group-hover:translate-x-1"
 										>
-											{skill}
-										</span>
-									))}
+											VERIFY_CREDENTIAL
+											<ExternalLink className="w-3 h-3" />
+										</motion.a>
+									</div>
 								</div>
-								<motion.a
-									href={cert.link}
-									target="_blank"
-									rel="noopener noreferrer"
-									className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 mt-4 group-hover:translate-x-2 transition-transform"
-									whileHover={{ scale: 1.05 }}
-								>
-									View Certificate
-									<ExternalLink className="w-4 h-4" />
-								</motion.a>
-							</div>
-						</motion.div>
-					</ScrollAnimation>
-				))}
+							</motion.div>
+						</ScrollAnimation>
+					))}
+				</div>
 			</div>
 		</div>
 	);
