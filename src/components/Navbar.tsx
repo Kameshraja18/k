@@ -31,7 +31,7 @@ const Navbar = () => {
 								KR
 							</div>
 							<span className="text-xl font-bold text-white tracking-tight group-hover:text-gray-200 transition-colors">
-								Kameshraja
+								Kameshraja K
 							</span>
 						</Link>
 
